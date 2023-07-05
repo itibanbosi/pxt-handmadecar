@@ -50,7 +50,7 @@ namespace eureka_blocks_car {
     //% block="進行方向 |%sinkou_houkou| " group="2　基本の動き"
     export function car_derection(sinkou_houkou: direction): void {
         switch (sinkou_houkou) {
-            case direction.前:
+            case direction.後:
                 if (con_le >= 0) {
                     pins.servoWritePin(AnalogPin.P13, 90 - (90 * (con_op + 100)) / 100 + con_le);
                     pins.servoWritePin(AnalogPin.P2, 90 + (90 * (con_op + 100)) / 100);
@@ -60,7 +60,7 @@ namespace eureka_blocks_car {
                     pins.servoWritePin(AnalogPin.P2, 90 + (90 * (con_op + 100)) / 100 + con_le);
                 }
                 break;
-            case direction.後:
+            case direction.前:
                 if (con_le >= 0) {
                     pins.servoWritePin(AnalogPin.P13, 90 + (90 * (con_op + 100)) / 100 - con_le);
                     pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100);
@@ -70,19 +70,19 @@ namespace eureka_blocks_car {
                     pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100 - con_le);
                 }
                 break;
-            case direction.左:
+            case direction.右:
                 pins.servoWritePin(AnalogPin.P13, 90 - (90 * (con_op + 100)) / 100);
                 pins.servoWritePin(AnalogPin.P2, 90);
                 break;
-            case direction.右:
+            case direction.左:
                 pins.servoWritePin(AnalogPin.P13, 90);
                 pins.servoWritePin(AnalogPin.P2, 90 + (90 * (con_op + 100)) / 100);
                 break;
-            case direction.左前:
+            case direction.右前:
                 pins.servoWritePin(AnalogPin.P13, 60);
                 pins.servoWritePin(AnalogPin.P2, 100);
                 break;
-            case direction.右前:
+            case direction.左前:
                 pins.servoWritePin(AnalogPin.P13, 80);
                 pins.servoWritePin(AnalogPin.P2, 120);
                 break;
@@ -100,7 +100,7 @@ namespace eureka_blocks_car {
     //% block="進行方向 |%sinkou_houkou| 動作時間|%time_sec| 秒" group="2　基本の動き"
     export function car_derection_time(sinkou_houkou: direction, time_sec: number): void {
         switch (sinkou_houkou) {
-            case direction.前:
+            case direction.後:
                 if (con_le >= 0) {
                     pins.servoWritePin(AnalogPin.P13, 90 - (90 * (con_op + 100)) / 100 + con_le);
                     pins.servoWritePin(AnalogPin.P2, 90 + (90 * (con_op + 100)) / 100);
@@ -113,7 +113,7 @@ namespace eureka_blocks_car {
                 pins.digitalWritePin(DigitalPin.P2, 0);
                 pins.digitalWritePin(DigitalPin.P13, 0);
                 break;
-            case direction.後:
+            case direction.前:
                 if (con_le >= 0) {
                     pins.servoWritePin(AnalogPin.P13, 90 + (90 * (con_op + 100)) / 100 - con_le);
                     pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100);
@@ -126,28 +126,28 @@ namespace eureka_blocks_car {
                 pins.digitalWritePin(DigitalPin.P2, 0);
                 pins.digitalWritePin(DigitalPin.P13, 0);
                 break;
-            case direction.左:
+            case direction.右:
                 pins.servoWritePin(AnalogPin.P13, 90 - (90 * (con_op + 100)) / 100);
                 pins.servoWritePin(AnalogPin.P2, 90);
                 basic.pause(time_sec * 1000);
                 pins.digitalWritePin(DigitalPin.P2, 0);
                 pins.digitalWritePin(DigitalPin.P13, 0);
                 break;
-            case direction.右:
+            case direction.左:
                 pins.servoWritePin(AnalogPin.P13, 90);
                 pins.servoWritePin(AnalogPin.P2, 90 + (90 * (con_op + 100)) / 100);
                 basic.pause(time_sec * 1000);
                 pins.digitalWritePin(DigitalPin.P2, 0);
                 pins.digitalWritePin(DigitalPin.P13, 0);
                 break;
-            case direction.左前:
+            case direction.右前:
                 pins.servoWritePin(AnalogPin.P13, 60);
                 pins.servoWritePin(AnalogPin.P2, 100);
                 basic.pause(time_sec * 1000);
                 pins.digitalWritePin(DigitalPin.P2, 0);
                 pins.digitalWritePin(DigitalPin.P13, 0);
                 break;
-            case direction.右前:
+            case direction.左前:
                 pins.servoWritePin(AnalogPin.P13, 80);
                 pins.servoWritePin(AnalogPin.P2, 120);
                 basic.pause(time_sec * 1000);
@@ -167,11 +167,11 @@ namespace eureka_blocks_car {
     //% block="回転 |%lot_houkou| " group="2　基本の動き"
     export function car_lotation(lot_houkou: lotation): void {
         switch (lot_houkou) {
-            case lotation.左:
+            case lotation.右:
                 pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100);
                 pins.servoWritePin(AnalogPin.P13, 90 - (90 * (con_op + 100)) / 100);
                 break;
-            case lotation.右:
+            case lotation.左:
                 pins.servoWritePin(AnalogPin.P2, 90 + (90 * (con_op + 100)) / 100);
                 pins.servoWritePin(AnalogPin.P13, 90 + (90 * (con_op + 100)) / 100);
                 break;
