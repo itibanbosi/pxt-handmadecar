@@ -27,12 +27,7 @@ let con_op = 0;
 //% color="#3943c6" block="ﾊﾝﾄﾞﾒｲﾄﾞ･ｶｰ" icon="\uf1b9"
 
 namespace eureka_blocks_car {
-    /*
-      //% color="#ff3d03" weight=59 blockId=eurekacar_buz_set block="ﾕｰﾚｶ車で音をならす" group="1_初期設定"
-      export function eurekacar_buz_set() {
-        pins.analogSetPitchPin(AnalogPin.P2);
-      }
-    */
+
 
     //% color="#ffa800" weight=99　blockId=servos_condition
     //% block="左右バランス調整 左へ |%le| 右へ" group="1　調整"
@@ -160,9 +155,6 @@ namespace eureka_blocks_car {
                 pins.digitalWritePin(DigitalPin.P1, 0);
                 break;
             case direction.止まる:
-                pins.servoWritePin(AnalogPin.P0, 90);
-                pins.servoWritePin(AnalogPin.P1, 90);
-                basic.pause(time_sec * 1000);
                 pins.digitalWritePin(DigitalPin.P0, 0);
                 pins.digitalWritePin(DigitalPin.P1, 0);
                 break;
