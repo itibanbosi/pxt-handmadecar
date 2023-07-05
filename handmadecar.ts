@@ -71,20 +71,20 @@ namespace eureka_blocks_car {
                 }
                 break;
             case direction.右:
-                pins.servoWritePin(AnalogPin.P13, 90 - (90 * (con_op + 100)) / 100);
+                pins.servoWritePin(AnalogPin.P13, 90 + (90 * (con_op + 100)) / 100);
                 pins.servoWritePin(AnalogPin.P2, 90);
                 break;
             case direction.左:
                 pins.servoWritePin(AnalogPin.P13, 90);
-                pins.servoWritePin(AnalogPin.P2, 90 + (90 * (con_op + 100)) / 100);
+                pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100);
                 break;
             case direction.右前:
-                pins.servoWritePin(AnalogPin.P13, 60);
-                pins.servoWritePin(AnalogPin.P2, 100);
+                pins.servoWritePin(AnalogPin.P13, 120);
+                pins.servoWritePin(AnalogPin.P2, 80);
                 break;
             case direction.左前:
-                pins.servoWritePin(AnalogPin.P13, 80);
-                pins.servoWritePin(AnalogPin.P2, 120);
+                pins.servoWritePin(AnalogPin.P13, 100);
+                pins.servoWritePin(AnalogPin.P2, 60);
                 break;
             case direction.止まる:
                 pins.digitalWritePin(DigitalPin.P2, 0);
@@ -142,13 +142,13 @@ namespace eureka_blocks_car {
                 break;
             case direction.右前:
                 pins.servoWritePin(AnalogPin.P13, 120);
-                pins.servoWritePin(AnalogPin.P2, 100);
+                pins.servoWritePin(AnalogPin.P2, 80);
                 basic.pause(time_sec * 1000);
                 pins.digitalWritePin(DigitalPin.P2, 0);
                 pins.digitalWritePin(DigitalPin.P13, 0);
                 break;
             case direction.左前:
-                pins.servoWritePin(AnalogPin.P13, 90);
+                pins.servoWritePin(AnalogPin.P13, 100);
                 pins.servoWritePin(AnalogPin.P2, 60);
                 basic.pause(time_sec * 1000);
                 pins.digitalWritePin(DigitalPin.P2, 0);
