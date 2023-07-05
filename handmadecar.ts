@@ -57,43 +57,43 @@ namespace eureka_blocks_car {
         switch (sinkou_houkou) {
             case direction.前:
                 if (con_le >= 0) {
-                    pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100 + con_le);
-                    pins.servoWritePin(AnalogPin.P1, 90 + (90 * (con_op + 100)) / 100);
+                    pins.servoWritePin(AnalogPin.P1, 90 - (90 * (con_op + 100)) / 100 + con_le);
+                    pins.servoWritePin(AnalogPin.P0, 90 + (90 * (con_op + 100)) / 100);
                 }
                 if (con_le < 0) {
-                    pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100);
-                    pins.servoWritePin(AnalogPin.P1, 90 + (90 * (con_op + 100)) / 100 + con_le);
+                    pins.servoWritePin(AnalogPin.P1, 90 - (90 * (con_op + 100)) / 100);
+                    pins.servoWritePin(AnalogPin.P0, 90 + (90 * (con_op + 100)) / 100 + con_le);
                 }
                 break;
             case direction.後:
                 if (con_le >= 0) {
-                    pins.servoWritePin(AnalogPin.P2, 90 + (90 * (con_op + 100)) / 100 - con_le);
-                    pins.servoWritePin(AnalogPin.P1, 90 - (90 * (con_op + 100)) / 100);
+                    pins.servoWritePin(AnalogPin.P1, 90 + (90 * (con_op + 100)) / 100 - con_le);
+                    pins.servoWritePin(AnalogPin.P0, 90 - (90 * (con_op + 100)) / 100);
                 }
                 if (con_le < 0) {
-                    pins.servoWritePin(AnalogPin.P2, 90 + (90 * (con_op + 100)) / 100);
-                    pins.servoWritePin(AnalogPin.P1, 90 - (90 * (con_op + 100)) / 100 - con_le);
+                    pins.servoWritePin(AnalogPin.P1, 90 + (90 * (con_op + 100)) / 100);
+                    pins.servoWritePin(AnalogPin.P0, 90 - (90 * (con_op + 100)) / 100 - con_le);
                 }
                 break;
             case direction.左:
-                pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100);
-                pins.servoWritePin(AnalogPin.P1, 90);
+                pins.servoWritePin(AnalogPin.P1, 90 - (90 * (con_op + 100)) / 100);
+                pins.servoWritePin(AnalogPin.P0, 90);
                 break;
             case direction.右:
-                pins.servoWritePin(AnalogPin.P2, 90);
-                pins.servoWritePin(AnalogPin.P1, 90 + (90 * (con_op + 100)) / 100);
+                pins.servoWritePin(AnalogPin.P1, 90);
+                pins.servoWritePin(AnalogPin.P0, 90 + (90 * (con_op + 100)) / 100);
                 break;
             case direction.左前:
-                pins.servoWritePin(AnalogPin.P2, 60);
-                pins.servoWritePin(AnalogPin.P1, 100);
+                pins.servoWritePin(AnalogPin.P1, 60);
+                pins.servoWritePin(AnalogPin.P0, 100);
                 break;
             case direction.右前:
-                pins.servoWritePin(AnalogPin.P2, 80);
-                pins.servoWritePin(AnalogPin.P1, 120);
+                pins.servoWritePin(AnalogPin.P1, 80);
+                pins.servoWritePin(AnalogPin.P0, 120);
                 break;
             case direction.止まる:
+                pins.digitalWritePin(DigitalPin.P0, 0);
                 pins.digitalWritePin(DigitalPin.P1, 0);
-                pins.digitalWritePin(DigitalPin.P2, 0);
                 break;
         }
     }
@@ -107,64 +107,64 @@ namespace eureka_blocks_car {
         switch (sinkou_houkou) {
             case direction.前:
                 if (con_le >= 0) {
-                    pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100 + con_le);
-                    pins.servoWritePin(AnalogPin.P1, 90 + (90 * (con_op + 100)) / 100);
+                    pins.servoWritePin(AnalogPin.P1, 90 - (90 * (con_op + 100)) / 100 + con_le);
+                    pins.servoWritePin(AnalogPin.P0, 90 + (90 * (con_op + 100)) / 100);
                 }
                 if (con_le < 0) {
-                    pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100);
-                    pins.servoWritePin(AnalogPin.P1, 90 + (90 * (con_op + 100)) / 100 + con_le);
+                    pins.servoWritePin(AnalogPin.P1, 90 - (90 * (con_op + 100)) / 100);
+                    pins.servoWritePin(AnalogPin.P0, 90 + (90 * (con_op + 100)) / 100 + con_le);
                 }
                 basic.pause(time_sec * 1000);
+                pins.digitalWritePin(DigitalPin.P0, 0);
                 pins.digitalWritePin(DigitalPin.P1, 0);
-                pins.digitalWritePin(DigitalPin.P2, 0);
                 break;
             case direction.後:
                 if (con_le >= 0) {
-                    pins.servoWritePin(AnalogPin.P2, 90 + (90 * (con_op + 100)) / 100 - con_le);
-                    pins.servoWritePin(AnalogPin.P1, 90 - (90 * (con_op + 100)) / 100);
+                    pins.servoWritePin(AnalogPin.P1, 90 + (90 * (con_op + 100)) / 100 - con_le);
+                    pins.servoWritePin(AnalogPin.P0, 90 - (90 * (con_op + 100)) / 100);
                 }
                 if (con_le < 0) {
-                    pins.servoWritePin(AnalogPin.P2, 90 + (90 * (con_op + 100)) / 100);
-                    pins.servoWritePin(AnalogPin.P1, 90 - (90 * (con_op + 100)) / 100 - con_le);
+                    pins.servoWritePin(AnalogPin.P1, 90 + (90 * (con_op + 100)) / 100);
+                    pins.servoWritePin(AnalogPin.P0, 90 - (90 * (con_op + 100)) / 100 - con_le);
                 }
                 basic.pause(time_sec * 1000);
+                pins.digitalWritePin(DigitalPin.P0, 0);
                 pins.digitalWritePin(DigitalPin.P1, 0);
-                pins.digitalWritePin(DigitalPin.P2, 0);
                 break;
             case direction.左:
-                pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100);
-                pins.servoWritePin(AnalogPin.P1, 90);
+                pins.servoWritePin(AnalogPin.P1, 90 - (90 * (con_op + 100)) / 100);
+                pins.servoWritePin(AnalogPin.P0, 90);
                 basic.pause(time_sec * 1000);
+                pins.digitalWritePin(DigitalPin.P0, 0);
                 pins.digitalWritePin(DigitalPin.P1, 0);
-                pins.digitalWritePin(DigitalPin.P2, 0);
                 break;
             case direction.右:
-                pins.servoWritePin(AnalogPin.P2, 90);
-                pins.servoWritePin(AnalogPin.P1, 90 + (90 * (con_op + 100)) / 100);
+                pins.servoWritePin(AnalogPin.P1, 90);
+                pins.servoWritePin(AnalogPin.P0, 90 + (90 * (con_op + 100)) / 100);
                 basic.pause(time_sec * 1000);
+                pins.digitalWritePin(DigitalPin.P0, 0);
                 pins.digitalWritePin(DigitalPin.P1, 0);
-                pins.digitalWritePin(DigitalPin.P2, 0);
                 break;
             case direction.左前:
-                pins.servoWritePin(AnalogPin.P2, 60);
-                pins.servoWritePin(AnalogPin.P1, 100);
+                pins.servoWritePin(AnalogPin.P1, 60);
+                pins.servoWritePin(AnalogPin.P0, 100);
                 basic.pause(time_sec * 1000);
+                pins.digitalWritePin(DigitalPin.P0, 0);
                 pins.digitalWritePin(DigitalPin.P1, 0);
-                pins.digitalWritePin(DigitalPin.P2, 0);
                 break;
             case direction.右前:
-                pins.servoWritePin(AnalogPin.P2, 80);
-                pins.servoWritePin(AnalogPin.P1, 120);
+                pins.servoWritePin(AnalogPin.P1, 80);
+                pins.servoWritePin(AnalogPin.P0, 120);
                 basic.pause(time_sec * 1000);
+                pins.digitalWritePin(DigitalPin.P0, 0);
                 pins.digitalWritePin(DigitalPin.P1, 0);
-                pins.digitalWritePin(DigitalPin.P2, 0);
                 break;
             case direction.止まる:
+                pins.servoWritePin(AnalogPin.P0, 90);
                 pins.servoWritePin(AnalogPin.P1, 90);
-                pins.servoWritePin(AnalogPin.P2, 90);
                 basic.pause(time_sec * 1000);
+                pins.digitalWritePin(DigitalPin.P0, 0);
                 pins.digitalWritePin(DigitalPin.P1, 0);
-                pins.digitalWritePin(DigitalPin.P2, 0);
                 break;
         }
     }
