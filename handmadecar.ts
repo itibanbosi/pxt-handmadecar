@@ -28,6 +28,14 @@ let con_op = 0;
 
 namespace eureka_blocks_car {
 
+    export enum kyori {
+        //% block="long"
+        long,
+        //% block="short",
+        short
+    }
+
+
 
     //% color="#ffa800" weight=99　blockId=servos_condition
     //% block="左右バランス調整 左へ |%le| 右へ" group="1　調整"
@@ -213,6 +221,68 @@ namespace eureka_blocks_car {
         basic.pause(second * 1000);
     }
 
+
+    //% color="#009A00" weight=22 blockId=sonar_ping_2 block="Distance sensor" group="6 Ultrasonic_Distance sensor"
+    //% advanced=true
+    export function sonar_ping_2(): number {
+        let d1 = 0;
+        let d2 = 0;
+
+        for (let i = 0; i < 5; i++) {
+            // send
+            basic.pause(5);
+            pins.setPull(DigitalPin.P2, PinPullMode.PullNone);
+            pins.digitalWritePin(DigitalPin.P14, 0);
+            control.waitMicros(2);
+            pins.digitalWritePin(DigitalPin.P14, 1);
+            control.waitMicros(10);
+            pins.digitalWritePin(DigitalPin.P14, 0);
+            // read
+            d1 = pins.pulseIn(DigitalPin.P10, PulseValue.High, 500 * 58);
+            d2 = d2 + d1;
+        }
+        return Math.round(Math.idiv(d2 / 5, 58) * 1.5);
+    }
+
+    //% color="#009A00" weight=30 block="(minimam 5cm) dstance |%limit| cm  |%nagasa| " group="6 Ultrasonic_Distance sensor"
+    //% limit.min=5 limit.max=30
+    //% advanced=true
+    export function sonar_ping_3(limit: number, nagasa: kyori): boolean {
+        let d1 = 0;
+        let d2 = 0;
+        if (limit < 8) {
+            limit = 8
+        }
+        for (let i = 0; i < 5; i++) {
+            // send
+            basic.pause(5);
+            pins.setPull(DigitalPin.P2, PinPullMode.PullNone);
+            pins.digitalWritePin(DigitalPin.P1, 0);
+            control.waitMicros(2);
+            pins.digitalWritePin(DigitalPin.P14, 1);
+            control.waitMicros(10);
+            pins.digitalWritePin(DigitalPin.P14, 0);
+            // read
+            d1 = pins.pulseIn(DigitalPin.P10, PulseValue.High, 500 * 58);
+            d2 = d1 + d2;
+        }
+        switch (nagasa) {
+            case kyori.short:
+                if (Math.idiv(d2 / 5, 58) * 1.5 < limit) {
+                    return true;
+                } else {
+                    return false;
+                }
+                break;
+            case kyori.long:
+                if (Math.idiv(d2 / 5, 58) * 1.5 < limit) {
+                    return false;
+                } else {
+                    return true;
+                }
+                break;
+        }
+    }
 
 
 }
