@@ -232,13 +232,13 @@ namespace eureka_blocks_car {
             // send
             basic.pause(5);
             pins.setPull(DigitalPin.P2, PinPullMode.PullNone);
-            pins.digitalWritePin(DigitalPin.P14, 0);
+            pins.digitalWritePin(DigitalPin.P0, 0);
             control.waitMicros(2);
-            pins.digitalWritePin(DigitalPin.P14, 1);
+            pins.digitalWritePin(DigitalPin.P0, 1);
             control.waitMicros(10);
-            pins.digitalWritePin(DigitalPin.P14, 0);
+            pins.digitalWritePin(DigitalPin.P0, 0);
             // read
-            d1 = pins.pulseIn(DigitalPin.P10, PulseValue.High, 500 * 58);
+            d1 = pins.pulseIn(DigitalPin.P1, PulseValue.High, 500 * 58);
             d2 = d2 + d1;
         }
         return Math.round(Math.idiv(d2 / 5, 58) * 1.5);
@@ -257,13 +257,13 @@ namespace eureka_blocks_car {
             // send
             basic.pause(5);
             pins.setPull(DigitalPin.P2, PinPullMode.PullNone);
-            pins.digitalWritePin(DigitalPin.P1, 0);
+            pins.digitalWritePin(DigitalPin.P0, 0);
             control.waitMicros(2);
-            pins.digitalWritePin(DigitalPin.P14, 1);
+            pins.digitalWritePin(DigitalPin.P0, 1);
             control.waitMicros(10);
-            pins.digitalWritePin(DigitalPin.P14, 0);
+            pins.digitalWritePin(DigitalPin.P0, 0);
             // read
-            d1 = pins.pulseIn(DigitalPin.P10, PulseValue.High, 500 * 58);
+            d1 = pins.pulseIn(DigitalPin.P1, PulseValue.High, 500 * 58);
             d2 = d1 + d2;
         }
         switch (nagasa) {
