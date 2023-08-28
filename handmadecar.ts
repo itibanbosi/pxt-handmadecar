@@ -41,7 +41,7 @@ namespace eureka_blocks_car {
     //% block="左右バランス調整 左へ |%le| 右へ" group="1　調整"
     //% le.min=-100 le.max=100
     export function condition(le: number): void {
-        con_le = le;
+        con_le = -le;
     }
 
     //% color="#ffa800" weight=97　blockId=servos_op
