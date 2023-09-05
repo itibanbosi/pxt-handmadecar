@@ -223,7 +223,6 @@ namespace eureka_blocks_car {
 
 
     //% color="#009A00" weight=22 blockId=sonar_ping_2 block="Distance sensor" group="3 超音波距離センサー"
-    //% advanced=true
     export function sonar_ping_2(): number {
         let d1 = 0;
         let d2 = 0;
@@ -246,7 +245,6 @@ namespace eureka_blocks_car {
 
     //% color="#009A00" weight=30 block="(minimam 5cm) dstance |%limit| cm  |%nagasa| " group="3 超音波距離センサー"
     //% limit.min=5 limit.max=30
-    //% advanced=true
     export function sonar_ping_3(limit: number, nagasa: kyori): boolean {
         let d1 = 0;
         let d2 = 0;
