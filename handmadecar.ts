@@ -201,7 +201,7 @@ namespace eureka_blocks_car {
     }
 
     //% color="#3943c6" weight=58　blockId=servo_pro_LR
-    //% block="|%lot_houkou| 車輪 出力 |%set_LR| " group="2　基本の動き"
+    //% block="|%lot_houkou| 車輪 出力 |%set_LR| " group="4 高度なブロック"
     //% set_LR.min=-100 set_LR.max=100
     export function pro_LR(lot_houkou: lotation, set_LR: number): void {
         switch (lot_houkou) {
