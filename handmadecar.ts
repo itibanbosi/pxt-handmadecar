@@ -245,7 +245,7 @@ namespace eureka_blocks_car {
     }
 
     //% color="#009A00" weight=30 block="(minimam 5cm) dstance |%limit| cm  |%nagasa| " group="3 超音波距離センサー"
-    //% limit.min=5 limit.max=30 ref = 5
+    //% limit.min=5 limit.max=30 limit.defl = 5
     export function sonar_ping_3(limit: number, nagasa: kyori): boolean {
         let d1 = 0;
         let d2 = 0;
