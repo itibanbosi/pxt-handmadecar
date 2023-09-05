@@ -172,7 +172,7 @@ namespace eureka_blocks_car {
 
 
     //% color="#3943c6" weight=63blockId=servos_lotation
-    //% block="回転 |%lot_houkou| " group="2　基本の動き"
+    //% block="回転 |%lot_houkou| " group="4 高度なブロック"
     export function car_lotation(lot_houkou: lotation): void {
         switch (lot_houkou) {
             case lotation.右:
@@ -193,7 +193,7 @@ namespace eureka_blocks_car {
 
 
     //% color="#3943c6" weight=59　blockId=servo_pro_bal
-    //% block="前進方向オリジナル 左へ |%set_lr| 右へ" group="2　基本の動き"
+    //% block="前進方向オリジナル 左へ |%set_lr| 右へ" group="4 高度なブロック"
     //% set_lr.min=-90 set_lr.max=90
     export function pro_bal(set_lr: number): void {
         pins.servoWritePin(AnalogPin.P2, 90 - (90 * (con_op + 100)) / 100);
@@ -222,7 +222,7 @@ namespace eureka_blocks_car {
     }
 
 
-    //% color="#009A00" weight=22 blockId=sonar_ping_2 block="Distance sensor" group="6 Ultrasonic_Distance sensor"
+    //% color="#009A00" weight=22 blockId=sonar_ping_2 block="Distance sensor" group="3 超音波距離センサー"
     //% advanced=true
     export function sonar_ping_2(): number {
         let d1 = 0;
@@ -244,7 +244,7 @@ namespace eureka_blocks_car {
         return Math.round(Math.idiv(d2 / 5, 58) * 1.5);
     }
 
-    //% color="#009A00" weight=30 block="(minimam 5cm) dstance |%limit| cm  |%nagasa| " group="6 Ultrasonic_Distance sensor"
+    //% color="#009A00" weight=30 block="(minimam 5cm) dstance |%limit| cm  |%nagasa| " group="3 超音波距離センサー"
     //% limit.min=5 limit.max=30
     //% advanced=true
     export function sonar_ping_3(limit: number, nagasa: kyori): boolean {
