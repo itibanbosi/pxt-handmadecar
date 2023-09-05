@@ -46,7 +46,7 @@ namespace eureka_blocks_car {
     }
 
     //% color="#ffa800" weight=97　blockId=servos_op
-    //% block="スピード調整 |%op|" group="1　調整"
+    //% block="スピード調整 |%op|" group="4 高度なブロック"
     //% op.min=-95 op.max=0
     export function servo_op(op: number): void {
         con_op = op;
