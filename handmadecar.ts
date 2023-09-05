@@ -22,7 +22,8 @@ enum lotation {
 
 let con_le = 0;
 let con_op = 0;
-
+pins.digitalWritePin(DigitalPin.P2, 0);
+pins.digitalWritePin(DigitalPin.P13, 0);
 
 //% color="#3943c6" block="ﾊﾝﾄﾞﾒｲﾄﾞ･ｶｰ" icon="\uf1b9"
 
