@@ -173,7 +173,7 @@ namespace eureka_blocks_car {
 
 
     //% color="#3943c6" weight=63blockId=servos_lotation
-    //% block="回転 |%lot_houkou| " group="2　基本の動き"
+    //% block="|%lot_houkou| 回転 " group="2　基本の動き"
     export function car_lotation(lot_houkou: lotation): void {
         switch (lot_houkou) {
             case lotation.右:
